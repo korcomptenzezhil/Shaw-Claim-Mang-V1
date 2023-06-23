@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-initiate-claim',
   templateUrl: './initiate-claim.component.html',
-  styleUrls: ['./initiate-claim.component.css']
+  styleUrls: ['./initiate-claim.component.scss']
 })
 export class InitiateClaimComponent {
   openModal() {
