@@ -1,0 +1,12 @@
+
+        <div  *ngFor="let item of overdueList" class="due-items mb-3  d-inline-block  table-styles" >
+            <div class="day-count due-end">
+                <h6>{{item.days}}</h6>
+                <span>Days</span>
+            </div>
+            <div class="due-info d-inline-block">
+                <h5>{{item.title}}</h5>
+                <p>{{item.des}}</p>
+            </div>
+        </div>
+   

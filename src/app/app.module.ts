@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,7 +12,10 @@ import { WorkQueueComponent } from './work-queue/work-queue.component';
 import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
 import { SettingsComponent } from './settings/settings.component';
-import { ThemeStyleComponent } from './theme-style/theme-style.component';
+import { ClaimDuesComponent } from './dashboard/claim-dues/claim-dues.component';
+import { OdItemsComponent } from './dashboard/od-items/od-items.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
 
 @NgModule({
@@ -28,14 +30,18 @@ import { ThemeStyleComponent } from './theme-style/theme-style.component';
     BodyComponent,
     FooterComponent,
     SettingsComponent,
-    ThemeStyleComponent
+    ClaimDuesComponent,
+    OdItemsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
