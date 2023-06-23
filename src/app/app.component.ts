@@ -1,10 +1,21 @@
 import { Component } from '@angular/core';
 
+interface SideNavToggle {
+  screenWidth: number;
+  collapsed: boolean;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Shaw-Claim-Mang-V1';
+  title = 'first-app';
+  isSideNavCollapsed = false;
+  screenWidth = 0;
+  onToggleSideNav(data: SideNavToggle): void {
+    this.screenWidth = data.screenWidth;
+    this.isSideNavCollapsed = data.collapsed;
+  }
 }

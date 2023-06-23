@@ -1,0 +1,39 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidebar-collapsed':''">
+    <div class="logo-container">
+        <button class="logo"><img src="../../assets/images/SHAW_CRP_LOGO_S.png" alt=""></button>
+        <div class="logo-text" @fadeInOut *ngIf="collapsed"><img src="../../assets/images/SHAW_CRP_LOGO.png" alt="">
+        </div>
+        <button class="btn-close" (click)="toggleCollapse()">
+            <i class="fa-solid fa-angles-right close-icon"></i>
+        </button>
+    </div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}">
+                <i class="sidenav-link-icon" [class]="data.icon"></i>
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{data.label}}</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="sidenav-nav setting-btn">
+        <li class="sidenav-nav-item" *ngFor="let data of navSettingsData">
+            <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}">
+                <i class="sidenav-link-icon" [class]="data.icon"></i>
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">Settings</span>
+            </a>
+        </li>
+    </ul>
+
+
+    <ul class="sidenav-nav logout-btn">
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link">
+                <i class="sidenav-link-icon fas fa-power-off"></i>
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">Logout</span>
+            </a>
+        </li>
+    </ul>
+
+</div>
