@@ -1,1 +1,287 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: normal;
+    background-color: #F8F8F8;
+    font-weight: 400;
+}
+
+:root {
+    --primary: #5D87FF;
+    --white: #ffffff;
+    --secondary: #F8F8F8;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --text-primary: #2A3547;
+    --text-secondary: #333333;
+    --h1: 56px;
+    --h2: 42px;
+    --h3: 36px;
+    --h4: 28px;
+    --h5: 22px;
+    --h6: 18px;
+    /* Heading line-height  */
+    --h1-lh: 68px;
+    --h2-lh: 51px;
+    --h3-lh: 44px;
+    --h4-lh: 34px;
+    --h5-lh: 27px;
+    --h6-lh: 22px;
+    /* Body Text  */
+    --para-fs-16: 16px;
+    --para-fs-18: 18px;
+    --para-fs-20: 20px;
+    /* Body Text Line-height  */
+    --para-fs-16-lh: 20px;
+    --para-fs-18-lh: 22px;
+    --para-fs-20-lh: 24px;
+    --bs-success-rgb: 50, 205, 50;
+}
+
+.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #AEAEAE;
+    opacity: 1;
+    /* Firefox */
+}
+
+.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #AEAEAE;
+}
+
+.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #AEAEAE;
+}
+
+hr {
+    border-color: #5d87ff;
+    opacity: 1;
+    margin: 2rem 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    line-height: 34px;
+    text-transform: capitalize;
+    color: #2A3547;
+}
+
+h4 {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.main h1 {
+    font-size: 28px;
+}
+
+.search {
+    position: relative;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+    display: inline-block;
+    width: 87%;
+}
+
+.search input {
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--primary);
+    text-indent: 0;
+}
+
+/* .search input:focus {
+    box-shadow: none;
+    border: 1px solid blue;
+} */
+
+.search input::placeholder {
+    color: var(--primary);
+    opacity: 1;
+}
+
+.search .fa-search {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: var(--primary);
+}
+
+.main .btn-primary {
+    background: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 30px;
+    padding: 7px 30px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+}
+
+.main .btn-secondary {
+    background: #FFFFFF;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 30px;
+    padding: 7px 35px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 17px;
+}
+
+.main .btn-secondary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.pagination .active>.page-link,
+.page-link.active {
+    color: var(--white);
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.pagination .page-link {
+    color: var(--primary);
+}
+
+.claim-info h4 {
+    border-bottom: 1px solid var(--primary);
+}
+
+.main .form-control {
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+}
+
+.form-switch .form-check-input {
+    height: 1.375em;
+    width: 2.75em;
+    background-image: url("data: image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8' ><circle r='3' fill='%23fff' /></svg>")
+}
+
+.form-switch .form-check-input:focus {
+    background-image: url("data: image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8' ><circle r='3' fill='%23fff' /></svg>")
+}
+
+.form-check-input {
+    background-color: #D9D9D9;
+    border-color: #D9D9D9;
+}
+
+.form-select {
+    background-image: url("data: image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' ><path fill='none' stroke='%235D87FF' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m2 5 6 6 6-6' /></svg>")
+}
+
+.form-check-input:checked {
+    background-color: #5d87ff;
+    border-color: #5d87ff;
+}
+
+form .search {
+    width: 100%;
+}
+
+form .search .fa-search {
+    position: absolute;
+    top: 10px;
+    left: auto;
+    right: 15px;
+    color: var(--primary);
+}
+
+.form-calendar i {
+    vertical-align: middle;
+    color: var(--primary);
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.modal .modal-header {
+    border-bottom: 1px solid var(--primary);
+}
+
+.modal .modal-footer {
+    border-top: 1px solid var(--primary);
+}
+
+.modal-bg::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 0.5;
+}
+
+.modal-dialog {
+    z-index: 9;
+}
+
+.form-input {
+    position: relative;
+}
+
+.form-input span {
+    position: absolute;
+    right: -10px;
+    top: 0;
+}
+
+.modal-divider {
+    border-bottom: 1px solid var(--primary);
+    margin: 0 auto 15px;
+    width: 97% !important;
+}
+
+@media (min-width: 768px) {
+
+    .main .btn-primary,
+    .main .btn-secondary {
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .main .btn-primary,
+    .main .btn-secondary {
+        padding: 10px 15px;
+        font-size: 12px;
+        width: 100%;
+    }
+
+    .search {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .modal-dialog {
+        margin-left: 5.5rem;
+    }
+
+}
