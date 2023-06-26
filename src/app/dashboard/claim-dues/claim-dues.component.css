@@ -2,6 +2,11 @@
     background: #ECF2FF;
     border-radius: 15px;
     padding: 25px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
 }
 
 .status-card:hover {
@@ -99,6 +104,7 @@
 
 .due-items .due-info p {
     font-weight: 400;
+    margin-bottom: 0;
     font-size: 14px;
     line-height: 20px;
 }

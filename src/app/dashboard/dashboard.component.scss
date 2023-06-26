@@ -62,7 +62,13 @@
 }
 
 .due-items .day-count h6 {
-    font-size: 21px;
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0;
+}
+
+.due-items .day-count span {
+    font-size: 15px;
     line-height: 18px;
     margin: 0;
 }
