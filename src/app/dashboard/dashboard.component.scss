@@ -167,10 +167,6 @@
     box-shadow: 1px 9px 11px -3px #c5c5c5;
 }
 
-.search input {
-    text-indent: 30px;
-}
-
 @media (min-width: 768px) {
     .due-items .day-count {
         width: 20%;
@@ -180,4 +176,10 @@
         width: 80%;
         padding-left: 0px;
     }
+}
+.table-styles{
+    display: inline-block;
+    text-align: center;
+    list-style-type: none;
+    padding: 1%;
 }
