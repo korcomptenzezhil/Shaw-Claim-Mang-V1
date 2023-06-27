@@ -173,6 +173,12 @@
     box-shadow: 1px 9px 11px -3px #c5c5c5;
 }
 
+.search {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
 @media (min-width: 768px) {
     .due-items .day-count {
         width: 20%;
@@ -183,7 +189,14 @@
         padding-left: 0px;
     }
 }
-.table-styles{
+
+@media (min-width: 1200px) {
+    .search {
+        width: 50%;
+    }
+}
+
+.table-styles {
     display: inline-block;
     text-align: center;
     list-style-type: none;

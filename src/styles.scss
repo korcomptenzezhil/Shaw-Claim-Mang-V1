@@ -77,15 +77,35 @@ h4,
 h5,
 h6 {
     font-family: 'Montserrat';
-    font-weight: 600;
-    line-height: 34px;
     text-transform: capitalize;
-    color: #2A3547;
+    color: #003146;
+    font-weight: 600;
 }
 
 h4 {
     font-size: 24px;
     line-height: 29px;
+}
+
+table th {
+    border-bottom-color: #00314680;
+}
+
+table th,
+table td {
+    font-weight: 400;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: #2A3547;
+}
+
+.table-text-nowrap th,
+.table-text-nowrap td {
+    white-space: nowrap;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
 
 .main h1 {
@@ -94,9 +114,9 @@ h4 {
 
 .search {
     position: relative;
-    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+    // box-shadow: 0 0 40px rgba(51, 51, 51, .1);
     display: inline-block;
-    width: 87%;
+    width: 50%;
 }
 
 .search input {
@@ -175,9 +195,15 @@ h4 {
     border-radius: 10px;
 }
 
+.form-switch {
+    padding-left: 3.5em;
+    line-height: 30px;
+}
+
 .form-switch .form-check-input {
     height: 1.375em;
     width: 2.75em;
+    margin-left: -3.5em;
     background-image: url("data: image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8' ><circle r='3' fill='%23fff' /></svg>")
 }
 
@@ -218,8 +244,26 @@ form .search .fa-search {
     padding: 10px 0;
 }
 
+.modal .modal-content {
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+.modal .modal-header,
+.modal .modal-body,
+.modal .modal-footer {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .modal .modal-header {
     border-bottom: 1px solid var(--primary);
+
+}
+
+.modal-footer>* {
+    margin: 0 -15px;
 }
 
 .modal .modal-footer {
@@ -277,11 +321,17 @@ form .search .fa-search {
 
     .search {
         width: 100%;
-        margin-bottom: 16px;
+        margin-bottom: 0;
     }
 
     .modal-dialog {
         margin-left: 5.5rem;
     }
 
+}
+
+@media (min-width: 1200px) {
+    .modal-xl {
+        --bs-modal-width: 1400px;
+    }
 }

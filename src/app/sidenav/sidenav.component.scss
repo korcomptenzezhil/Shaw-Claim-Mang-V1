@@ -14,6 +14,7 @@
     padding: 1.25rem 0.938rem;
     width: 100%;
     background: #F3F3F3;
+    height: 90px;
 }
 
 .logo-container .logo {
@@ -80,8 +81,9 @@
     padding: 0.938rem;
     display: flex;
     flex-direction: column;
-    height: calc(100% - 13rem);
+    height: calc(100% - 16rem);
     cursor: pointer;
+    transition: all .3s ease;
 }
 
 .sidenav-nav.setting-btn,
@@ -144,6 +146,42 @@
 .sidebar-collapsed .btn-close {
     transform: rotate(180deg);
     animation: animName 0.5s linear;
+}
+
+.logout-btn {
+    a.sidenav-nav-link {
+        background: #FFFFFF;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+        border-radius: 50%;
+        padding: 8px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 17px;
+        width: 3rem;
+        height: 3rem;
+        justify-content: center;
+        margin-top: 1rem;
+
+        .sidenav-link-icon {
+            width: auto;
+            min-width: auto;
+            margin: 0;
+        }
+    }
+}
+
+.sidebar-collapsed .logout-btn {
+    margin-top: 0;
+
+    a.sidenav-nav-link {
+        width: 80%;
+        padding: 8px 30px;
+        border-radius: 3rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @keyframes animName {
