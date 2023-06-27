@@ -18,17 +18,29 @@
                     <label for="Customer" class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-form-label">Customer
                         #</label>
                     <div class="col-12 col-xl-2 col-lg-3 col-md-6 col-sm-12">
-                        <div class="search">
+                        <div class="search cursor-pointer">
                             <i class="fa fa-search"></i>
                             <input type="text" class="form-control">
                         </div>
                     </div>
+                    <div class="col-12"></div>
+                    <div class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"></div>
+                    <div class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                        <p class="customer-details">
+                            ISI DESIGN AND INSTALLATION SOLUTIONS INC (Primary customer - 0011075- ISI DESIGN AND
+                            INSTALLATION SOLUTIONS Inc.)
+                            DBA FKA-CREATIVE TOUCH INT’S INC
+                            P O BOX 4929
+                            ORLANDO, FL 32802-4929
+                        </p>
+                    </div>
                 </div>
+
                 <div class="row mb-3">
                     <label for="Store" class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-form-label">Store
                         #</label>
                     <div class="col-12 col-xl-2 col-lg-3 col-md-6 col-sm-12">
-                        <div class="search">
+                        <div class="search cursor-pointer" (click)="openModalModalStoreInvoice()">
                             <i class="fa fa-search"></i>
                             <input type="text" class="form-control">
                         </div>
@@ -53,7 +65,7 @@
                     <div class="col-12 col-xl-4 col-lg-6 col-md-6 col-sm-12">
                         <div class="row">
 
-                            <div class="col-12 col-xl-3 col-lg-3 col-md-12 col-sm-3">
+                            <div class="col-12 col-xl-3 col-lg-3 col-md-12 col-sm-3 mb-3 mb-lg-0">
                                 <select class="form-select form-control" aria-label="Default select example">
                                     <option selected="">INV</option>
                                     <option value="1">One</option>
@@ -61,13 +73,13 @@
                                     <option value="3">Three</option>
                                 </select>
                             </div>
-                            <div class="col-12 col-xl-5 col-lg-5 col-md-12 col-sm-4">
+                            <div class="col-12 col-xl-5 col-lg-5 col-md-12 col-sm-4 mb-3 mb-lg-0">
                                 <div class="search">
 
                                     <input type="text" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-10 col-xl-4 col-lg-4 col-md-12 col-sm-4">
+                            <div class="col-12 col-xl-4 col-lg-4 col-md-12 col-sm-4 mb-0 mb-lg-0">
                                 <input type="text" class="form-control" placeholder="DD/MM/YYY">
                             </div>
                         </div>
@@ -175,18 +187,61 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12 mt-2 text-end">
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr class="bg-light">
+                                        <th scope="col" colspan="4" class="text-center">Document</th>
+                                        <th scope="col" colspan="3" class="text-center">Associated Invoice</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Number</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Number</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Total $’s</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row"><a href="" class="text-danger"><i
+                                                    class="fa-solid fa-trash-can"></i></a></td>
+                                        <td scope="row">INV</td>
+                                        <td>7577923</td>
+                                        <td>06/11/2019</td>
+                                        <td>7577923</td>
+                                        <td>06/11/2019</td>
+                                        <td class="text-end">$2,482.92</td>
+                                    </tr>
 
-                        <a class="d-sm-inline-block btn btn-sm btn-secondary">Stop
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-lg-12 mt-2 text-end d-flex gap-3 justify-content-end flex-wrap">
+
+                        <a class="d-sm-inline-block btn btn-sm btn-secondary" (click)="openModalStopInitiate()">Stop
                             Initiate</a>
-                        <a class="d-sm-inline-block btn btn-sm btn-primary mx-lg-3 mx-md-2 my-2"
-                            (click)="openModalInitiateClaim()">Continue
+                        <a class="d-sm-inline-block btn btn-sm btn-primary" (click)="openModalEnterClaim()">Continue
                             Initiation</a>
 
+                        <a class="d-sm-inline-block btn btn-sm btn-primary" (click)="openModalWarning()">Warning
+                            Popup</a>
 
-                        <a class="d-sm-inline-block btn btn-sm btn-primary mx-lg-3 mx-md-2 my-2"
-                            (click)="openModalInitiateClaim()">Test Modal</a>
+                        <a class="d-sm-inline-block btn btn-sm btn-primary" (click)="openModalInfo()">Info
+                            Popup</a>
+
+
+                        <a class="d-sm-inline-block btn btn-sm btn-primary" (click)="openModalError()">Error
+                            Popup</a>
+
                     </div>
                 </div>
             </form>
@@ -194,16 +249,18 @@
 
 
         </div>
+
+
     </div>
     <!-- Modal Enter Claim Notes -->
-    <div class="modal modal-bg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal modal-bg" id="modalEnterClaim" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Enter Claim Notes</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                        (click)="CloseModal()"></button>
+                        (click)="CloseModalEnterClaim()"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -213,32 +270,34 @@
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
                         </div>
-                        <div class="col-lg12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    Spell Check
-                                </label>
+                        <div class="col-lg-12 mt-2 mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Spell Check</label>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" (click)="CloseModal()">Back</button>
-                        <button type="button" class="btn btn-primary">Initiate Claim</button>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#stopinitiate">Stop Initiate</button>
+                        <div class="row">
+                            <div class="col-12 d-flex gap-3 flex-wrap"><button type="button" class="btn btn-primary"
+                                    (click)="openModalInitiateClaim()">Initiate
+                                    Claim</button></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal Enter Claim Notes -->
+
+    <!-- Modal Stop Initiate -->
     <div class="modal modal-bg" id="stopinitiate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="stopinitiateLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="stopinitiateLabel">Enter Claim Notes</h5>
+                    <h5 class="modal-title" id="stopinitiateLabel">Message from webpage</h5>
                     <button type="button" class="btn-close" (click)="CloseModalStopInitiate()"
                         aria-label="Close"></button>
                 </div>
@@ -252,12 +311,111 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" (click)="CloseModalStopInitiate()">Cancel</button>
-                    <button type="button" class="btn btn-primary">Ok</button>
+                    <div class="row">
+                        <div class="col-12 d-flex gap-3 flex-wrap">
+                            <button type="button" class="btn btn-secondary"
+                                (click)="CloseModalStopInitiate()">Cancel</button>
+                            <button type="button" class="btn btn-primary">Ok</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Modal Warning -->
+    <div class="modal modal-bg" id="modalWarning" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="modalWarningLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-warning" id="modalWarningLabel"><i
+                            class="fa-solid fa-triangle-exclamation"></i>
+                        Warning</h5>
+                    <button type="button" class="btn-close" (click)="CloseModalWarning()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p> Lorem ipsum dolor sit amet. Non iste numquam ut
+                                explicabo dolore qui voluptas!</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-12 d-flex gap-3 flex-wrap">
+                            <button type="button" class="btn btn-secondary" (click)="CloseModalWarning()">Quit</button>
+                            <!-- <button type="button" class="btn btn-primary">Ok</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Info -->
+    <div class="modal modal-bg" id="modalInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="modalInfoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalInfoLabel"><i class="fa-solid fa-circle-exclamation"></i> Info
+                    </h5>
+                    <button type="button" class="btn-close" (click)="CloseModalInfo()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>Lorem ipsum dolor sit amet. Non iste numquam ut explicabo dolore qui voluptas!</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-12 d-flex gap-3 flex-wrap"><button type="button" class="btn btn-secondary"
+                                (click)="CloseModalInfo()">Quit</button>
+                            <!-- <button type="button" class="btn btn-primary">Ok</button> --></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Error -->
+    <div class="modal modal-bg" id="modalError" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="modalErrorLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="modalInfoLabel"><i class="fa-solid fa-circle-xmark"></i>
+                        Error
+                    </h5>
+                    <button type="button" class="btn-close" (click)="CloseModalError()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>Lorem ipsum dolor sit amet. Non iste numquam ut explicabo dolore qui voluptas!</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-12 d-flex gap-3 flex-wrap">
+                            <button type="button" class="btn btn-secondary" (click)="CloseModalError()">Quit</button>
+                            <!-- <button type="button" class="btn btn-primary">Ok</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Modal Claim has been initiated -->
     <div class="modal modal-bg" id="initiateclaim" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -306,14 +464,14 @@
                 </div>
                 <div class="modal-footer">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-12 d-flex gap-3 flex-wrap">
                             <p>Press <span class="text-danger">
                                     &lt;CTRL&gt; Left click
                                 </span> to save this document in OnBase</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-12 d-flex gap-3 flex-wrap">
                             <div class="d-flex justify-content-center flex-wrap">
                                 <button type="button" class="btn btn-primary me-md-2 mb-3 mb-lg-0">Work this
                                     Claim</button>
@@ -550,12 +708,95 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" (click)="CloseModalEndUserInfo()">Back</button>
-                    <button type="button" class="btn btn-primary">Continue Initiation</button>
+                    <div class="row">
+                        <div class="col-12 d-flex gap-3 flex-wrap">
+                            <button type="button" class="btn btn-secondary"
+                                (click)="CloseModalEndUserInfo()">Back</button>
+                            <button type="button" class="btn btn-primary">Continue Initiation</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
+    </div>
+
+    <!-- Add Invoice -->
+    <div class="modal modal-bg" id="addinvoice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="addinvoiceLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addinvoiceLabel">Add Invoice</h5>
+                    <button type="button" class="btn-close" (click)="CloseModalAddInvoice()"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="invoice-order">004069 Invoice #7577923 - 06/11/2019 (Order #504762) [OPEN A/R]
+                            </h4>
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <div class="table-responsive table-summary">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"><input type="checkbox"></th>
+                                            <th scope="col">LINE</th>
+                                            <th scope="col">ROLL</th>
+                                            <th scope="col">STYLE</th>
+                                            <th scope="col">COLOR</th>
+                                            <th scope="col">LOT</th>
+                                            <th scope="col">TYPE</th>
+                                            <th scope="col">GRADE</th>
+                                            <th scope="col">WIDTH</th>
+                                            <th scope="col">LENGTH</th>
+                                            <th scope="col">QTY</th>
+                                            <th scope="col">UOM</th>
+                                            <th scope="col">PRICE (USD)</th>
+                                            <th scope="col">AMT (USD)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>001</td>
+                                            <td></td>
+                                            <td>DR667</td>
+                                            <td>07011</td>
+                                            <td>1S05191HW000T00</td>
+                                            <td>H</td>
+                                            <td>A</td>
+                                            <td>0'00"</td>
+                                            <td>0'00"</td>
+                                            <td>1188.0</td>
+                                            <td>SF</td>
+                                            <td class="text-end">$2.09</td>
+                                            <td class="text-end">$2,482.92</td>
+                                        </tr>
+                                        <tr class="bg-light">
+                                            <td colspan="14" class="text-end">$2,482.92</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-12 d-flex gap-3 flex-wrap">
+                                <!-- <button type="button" class="btn btn-secondary" (click)="CloseModalAddInvoice()">Cancel</button> -->
+                                <button type="button" class="btn btn-primary" (click)="openModalPriorClaimSummary()">
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Prior Claim Summary -->
@@ -565,12 +806,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="priorclaimsummaryLabel">Prior Claim Summary</h5>
-                    <button type="button" class="btn-close" (click)="CloseModalInitiateClaim()"></button>
+                    <button type="button" class="btn-close" (click)="CloseModalPriorClaimSummary()"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="table-responsive table-summary">
+                            <div class="table-responsive table-summary table-text-nowrap">
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
@@ -615,100 +856,167 @@
                     </div>
 
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" (click)="CloseModalInitiateClaim()">Stop
-                        Initiate</button>
-                    <button type="button" class="btn btn-primary">Do Not Add</button>
-                    <button type="button" class="btn btn-primary">Continue</button>
-                </div>
             </div>
         </div>
     </div>
 
-
-    <!-- Add Invoice -->
-    <div class="modal modal-bg" id="addinvoice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="addinvoiceLabel" aria-hidden="true">
+    <!-- Store Information -->
+    <div class="modal modal-bg" id="storeinvoice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="storeinvoiceLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addinvoiceLabel">Add Invoice</h5>
-                    <button type="button" class="btn-close" (click)="CloseModalAddInvoice()"></button>
+                    <h5 class="modal-title" id="storeinvoiceLabel">Store Information</h5>
+                    <button type="button" class="btn-close" (click)="CloseModalStoreInvoice()"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="invoice-order">004069 Invoice #7577923 - 06/11/2019 (Order #504762) [OPEN A/R]
-                            </h4>
-                            <div class="form-check px-4">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-                                <label class="form-check-label" for="flexCheckIndeterminate">
-                                    Indeterminate checkbox
-                                </label>
-                            </div>
-                        </div>
                         <div class="col-md-12 mb-4">
                             <div class="table-responsive table-summary">
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
                                             <th scope="col"><input type="checkbox"></th>
-                                            <th scope="col">LINE</th>
-                                            <th scope="col">ROLL</th>
-                                            <th scope="col">STYLE</th>
-                                            <th scope="col">COLOR</th>
-                                            <th scope="col">LOT</th>
-                                            <th scope="col">TYPE</th>
-                                            <th scope="col">GRADE</th>
-                                            <th scope="col">WIDTH</th>
-                                            <th scope="col">LENGTH</th>
-                                            <th scope="col">QTY</th>
-                                            <th scope="col">UOM</th>
-                                            <th scope="col">PRICE (USD)</th>
-                                            <th scope="col">AMT (USD)</th>
+                                            <th scope="col">Store #</th>
+                                            <th scope="col">commcust</th>
+                                            <th scope="col">customer #</th>
+                                            <th scope="col">store name</th>
+                                            <th scope="col">address</th>
+                                            <th scope="col">city,state,zip</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td><input type="checkbox" class="mt-2"></td>
-                                            <td colspan="13">
-                                                <div class="row">
-                                                    <div class="col-md-2 col-3">
-                                                        <div class="form-input">
-                                                            <select class="form-select form-control p-1"
-                                                                aria-label="Default select example">
-                                                                <option selected>DR667</option>
-                                                                <option value="1">DR668</option>
-                                                                <option value="2">DR669</option>
-                                                            </select>
-                                                            <span class="text-danger">*</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-10">
-                                                        <p class="mb-0 pt-2">Add warranty/fiber brand information
-                                                            for style</p>
-                                                    </div>
-                                                </div>
+                                            <td>
+                                                1090
+                                            </td>
+                                            <td>
+                                                0006812
+                                            </td>
+                                            <td>
+                                                0137711
+                                            </td>
+                                            <td>
+                                                lowe’s companies, inc #1090
+                                            </td>
+                                            <td>
+                                                734 south gilbert road
+                                            </td>
+                                            <td>
+                                                gilbert, AZ 85296
                                             </td>
                                         </tr>
+
+
                                         <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td>001</td>
-                                            <td></td>
-                                            <td>DR667</td>
-                                            <td>07011</td>
-                                            <td>1S05191HW000T00</td>
-                                            <td>H</td>
-                                            <td>A</td>
-                                            <td>0'00"</td>
-                                            <td>0'00"</td>
-                                            <td>1188.0</td>
-                                            <td>SF</td>
-                                            <td class="text-end">$2.09</td>
-                                            <td class="text-end">$2,482.92</td>
+                                            <td><input type="checkbox" class="mt-2"></td>
+                                            <td>
+                                                1090
+                                            </td>
+                                            <td>
+                                                0006812
+                                            </td>
+                                            <td>
+                                                0137711
+                                            </td>
+                                            <td>
+                                                lowe’s companies, inc #1090
+                                            </td>
+                                            <td>
+                                                734 south gilbert road
+                                            </td>
+                                            <td>
+                                                gilbert, AZ 85296
+                                            </td>
                                         </tr>
+
                                         <tr>
-                                            <td colspan="14" class="text-end">$2,482.92</td>
+                                            <td><input type="checkbox" class="mt-2"></td>
+                                            <td>
+                                                1090
+                                            </td>
+                                            <td>
+                                                0006812
+                                            </td>
+                                            <td>
+                                                0137711
+                                            </td>
+                                            <td>
+                                                lowe’s companies, inc #1090
+                                            </td>
+                                            <td>
+                                                734 south gilbert road
+                                            </td>
+                                            <td>
+                                                gilbert, AZ 85296
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><input type="checkbox" class="mt-2"></td>
+                                            <td>
+                                                1090
+                                            </td>
+                                            <td>
+                                                0006812
+                                            </td>
+                                            <td>
+                                                0137711
+                                            </td>
+                                            <td>
+                                                lowe’s companies, inc #1090
+                                            </td>
+                                            <td>
+                                                734 south gilbert road
+                                            </td>
+                                            <td>
+                                                gilbert, AZ 85296
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><input type="checkbox" class="mt-2"></td>
+                                            <td>
+                                                1090
+                                            </td>
+                                            <td>
+                                                0006812
+                                            </td>
+                                            <td>
+                                                0137711
+                                            </td>
+                                            <td>
+                                                lowe’s companies, inc #1090
+                                            </td>
+                                            <td>
+                                                734 south gilbert road
+                                            </td>
+                                            <td>
+                                                gilbert, AZ 85296
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><input type="checkbox" class="mt-2"></td>
+                                            <td>
+                                                1090
+                                            </td>
+                                            <td>
+                                                0006812
+                                            </td>
+                                            <td>
+                                                0137711
+                                            </td>
+                                            <td>
+                                                lowe’s companies, inc #1090
+                                            </td>
+                                            <td>
+                                                734 south gilbert road
+                                            </td>
+                                            <td>
+                                                gilbert, AZ 85296
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -717,8 +1025,13 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" (click)="CloseModalAddInvoice()">Cancel</button>
-                        <button type="button" class="btn btn-primary"> Add </button>
+                        <div class="row">
+                            <div class="col-12 d-flex gap-3 flex-wrap">
+                                <button type="button" class="btn btn-secondary"
+                                    (click)="CloseModalStoreInvoice()">Cancel</button>
+                                <button type="button" class="btn btn-primary"> Add </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

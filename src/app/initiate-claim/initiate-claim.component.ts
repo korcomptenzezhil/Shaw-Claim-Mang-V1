@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./initiate-claim.component.scss']
 })
 export class InitiateClaimComponent {
-  openModal() {
-    const modelDiv = document.getElementById('staticBackdrop');
+  openModalEnterClaim() {
+    const modelDiv = document.getElementById('modalEnterClaim');
     if (modelDiv != null) {
       modelDiv.style.display = 'block';
     }
@@ -20,10 +20,35 @@ export class InitiateClaimComponent {
     }
   }
 
-  openModalInitiateClaim() {
-    const modelDiv = document.getElementById('initiateclaim');
+  openModalWarning() {
+    const modelDiv = document.getElementById('modalWarning');
     if (modelDiv != null) {
       modelDiv.style.display = 'block';
+    }
+  }
+
+  openModalInfo() {
+    const modelDiv = document.getElementById('modalInfo');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'block';
+    }
+  }
+
+  openModalError() {
+    const modelDiv = document.getElementById('modalError');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'block';
+    }
+  }
+
+  openModalInitiateClaim() {
+    const modelDiv = document.getElementById('initiateclaim');
+    const modelDiv1 = document.getElementById('modalEnterClaim');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'block';
+    }
+    if (modelDiv1 != null) {
+      modelDiv1.style.display = 'none';
     }
   }
 
@@ -35,13 +60,6 @@ export class InitiateClaimComponent {
   }
 
 
-
-  openModalPriorClaimSummary() {
-    const modelDiv = document.getElementById('priorclaimsummary');
-    if (modelDiv != null) {
-      modelDiv.style.display = 'block';
-    }
-  }
   openModalAddInvoice() {
     const modelDiv = document.getElementById('addinvoice');
     if (modelDiv != null) {
@@ -49,8 +67,32 @@ export class InitiateClaimComponent {
     }
   }
 
-  CloseModal() {
-    const modelDiv = document.getElementById('staticBackdrop');
+  openModalPriorClaimSummary() {
+    const modelDiv = document.getElementById('priorclaimsummary');
+    const modelDiv1 = document.getElementById('addinvoice');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'block';
+    }
+    if (modelDiv1 != null) {
+      modelDiv1.style.display = 'none';
+    }
+  }
+  openModalModalStoreInvoice() {
+    const modelDiv = document.getElementById('storeinvoice');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'block';
+    }
+  }
+
+  CloseModalEnterClaim() {
+    const modelDiv = document.getElementById('modalEnterClaim');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'none';
+    }
+  }
+
+  CloseModalInfo() {
+    const modelDiv = document.getElementById('modalInfo');
     if (modelDiv != null) {
       modelDiv.style.display = 'none';
     }
@@ -63,6 +105,18 @@ export class InitiateClaimComponent {
     }
   }
 
+  CloseModalWarning() {
+    const modelDiv = document.getElementById('modalWarning');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'none';
+    }
+  }
+  CloseModalError() {
+    const modelDiv = document.getElementById('modalError');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'none';
+    }
+  }
 
   CloseModalInitiateClaim() {
     const modelDiv = document.getElementById('initiateclaim');
@@ -79,7 +133,6 @@ export class InitiateClaimComponent {
     }
   }
 
-
   CloseModalPriorClaimSummary() {
     const modelDiv = document.getElementById('priorclaimsummary');
     if (modelDiv != null) {
@@ -89,6 +142,13 @@ export class InitiateClaimComponent {
 
   CloseModalAddInvoice() {
     const modelDiv = document.getElementById('addinvoice');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'none';
+    }
+  }
+
+  CloseModalStoreInvoice() {
+    const modelDiv = document.getElementById('storeinvoice');
     if (modelDiv != null) {
       modelDiv.style.display = 'none';
     }
