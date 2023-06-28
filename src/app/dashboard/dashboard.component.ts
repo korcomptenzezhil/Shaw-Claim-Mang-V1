@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  @Input() collapsed = false;
-  @Input() screenWidth = 0;
-  isSideNavCollapsed: boolean = true;
-  //screenWidth!: number;
   inputRespData = {
     claimDuesArray : [
       {label:"47", text:"Total claims in queue"},
@@ -39,17 +35,4 @@ export class DashboardComponent {
 
     }
 
-    
-  onToggleSideNav(collapsed: boolean): void {
-    this.isSideNavCollapsed = collapsed;
-  }
-  getBodyClass(): string {
-    let styleClass = '';
-    if (this.collapsed && this.screenWidth > 768) {
-      styleClass = "body-trimmed";
-    } else if (this.collapsed && this.screenWidth <= 768 && this.screenWidth > 0) {
-      styleClass = "body-md-screen";
-    }
-    return styleClass;
-  }
 }

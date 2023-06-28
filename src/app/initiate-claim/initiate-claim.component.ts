@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./initiate-claim.component.scss']
 })
 export class InitiateClaimComponent {
-  isSideNavCollapsed: boolean = true;
-  screenWidth!: number;
   openModalEnterClaim() {
     const modelDiv = document.getElementById('modalEnterClaim');
     if (modelDiv != null) {
@@ -165,9 +163,6 @@ export class InitiateClaimComponent {
     bodyTag.classList.add('my-class');
   }
 
-  onToggleSideNav(collapsed: boolean): void {
-    this.isSideNavCollapsed = collapsed;
-  }
 
 }
 
