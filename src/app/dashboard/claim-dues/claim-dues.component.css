@@ -2,6 +2,11 @@
     background: #ECF2FF;
     border-radius: 15px;
     padding: 25px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
 }
 
 .status-card:hover {
@@ -62,13 +67,7 @@
 }
 
 .due-items .day-count h6 {
-    font-size: 15px;
-    line-height: 18px;
-    margin: 0;
-}
-
-.due-items .day-count span {
-    font-size: 15px;
+    font-size: 21px;
     line-height: 18px;
     margin: 0;
 }
@@ -105,6 +104,7 @@
 
 .due-items .due-info p {
     font-weight: 400;
+    margin-bottom: 0;
     font-size: 14px;
     line-height: 20px;
 }
@@ -173,12 +173,6 @@
     box-shadow: 1px 9px 11px -3px #c5c5c5;
 }
 
-.search {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
 @media (min-width: 768px) {
     .due-items .day-count {
         width: 20%;
@@ -189,16 +183,9 @@
         padding-left: 0px;
     }
 }
-
-@media (min-width: 1200px) {
-    .search {
-        width: 50%;
-    }
-}
-
-.table-styles {
+.table-styles{
     display: inline-block;
     text-align: center;
-    list-style-type: none;
+   
     padding: 1%;
 }

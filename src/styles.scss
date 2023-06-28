@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: normal;
     background-color: #F8F8F8;
     font-weight: 400;
@@ -28,7 +28,7 @@ body {
     --h3: 36px;
     --h4: 28px;
     --h5: 22px;
-    --h6: 18px;
+    --h6: 20px;
     /* Heading line-height  */
     --h1-lh: 68px;
     --h2-lh: 51px;
@@ -37,14 +37,90 @@ body {
     --h5-lh: 27px;
     --h6-lh: 22px;
     /* Body Text  */
-    --para-fs-16: 16px;
-    --para-fs-18: 18px;
-    --para-fs-20: 20px;
+    --fs-16: 16px;
+    --fs-18: 1.125rem; //Default
+    --fs-20: 20px;
+    --fs-22: 22px;
     /* Body Text Line-height  */
-    --para-fs-16-lh: 20px;
-    --para-fs-18-lh: 22px;
-    --para-fs-20-lh: 24px;
+    --fs-16-lh: 20px;
+    --fs-18-lh: 22px;
+    --fs-20-lh: 24px;
     --bs-success-rgb: 50, 205, 50;
+    --scm-btn-disabled-color: #fff;
+    --scm-btn-disabled-bg: #C7C7C7;
+    --scm-btn-disabled-border-color: #C7C7C7;
+    --scm-btn-disabled-opacity: 1;
+
+}
+
+.styled-checkbox {
+    position: absolute; // take it out of document flow
+    opacity: 0; // hide it
+
+    &+label {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    // Box.
+    &+label:before {
+        content: '';
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: text-top;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    // Box hover
+    &:hover+label:before {
+        background: #f6f6f6;
+    }
+
+    // Box focus
+    &:focus+label:before {
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+    }
+
+    // Box checked
+    &:checked+label:before {
+        background: #5D87FF;
+    }
+
+    // Disabled state label.
+    &:disabled+label {
+        color: #b8b8b8;
+        cursor: auto;
+    }
+
+    // Disabled box.
+    &:disabled+label:before {
+        box-shadow: none;
+        background: #ddd;
+    }
+
+    // Checkmark. Could be replaced with an image
+    &:checked+label:after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 9px;
+        background: white;
+        width: 2px;
+        height: 2px;
+        box-shadow:
+            2px 0 0 white,
+            4px 0 0 white,
+            4px -2px 0 white,
+            4px -4px 0 white,
+            4px -6px 0 white,
+            4px -8px 0 white;
+        transform: rotate(45deg);
+    }
 }
 
 .form-control::placeholder {
@@ -77,15 +153,52 @@ h4,
 h5,
 h6 {
     font-family: 'Montserrat';
-    font-weight: 600;
-    line-height: 34px;
     text-transform: capitalize;
-    color: #2A3547;
+    color: #003146;
+    font-weight: 600;
 }
 
 h4 {
     font-size: 24px;
     line-height: 29px;
+    padding-bottom: 1.125rem;
+}
+
+h6 {
+    font-size: var(--fs-20);
+}
+
+.table> :not(caption)>*>* {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+table th,
+table td {
+    font-weight: 400;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: #2A3547;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+table th {
+    border-bottom-color: #00314680;
+    font-weight: 500;
+}
+
+.table-text-nowrap th,
+.table-text-nowrap td {
+    white-space: nowrap;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.col-form-label {
+    font-weight: 500
 }
 
 .main h1 {
@@ -94,19 +207,18 @@ h4 {
 
 .search {
     position: relative;
-    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+    // box-shadow: 0 0 40px rgba(51, 51, 51, .1);
     display: inline-block;
-    width: 87%;
+    width: 50%;
 }
 
 .search input {
     border: 1px solid var(--primary);
     border-radius: 10px;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 1.125rem;
     color: var(--primary);
-    text-indent: 0;
+    text-indent: 30px;
 }
 
 /* .search input:focus {
@@ -133,8 +245,8 @@ h4 {
     padding: 7px 30px;
     font-style: normal;
     font-weight: 700;
-    font-size: 13px;
-    line-height: 17px;
+    font-size: var(--fs-16);
+    line-height: normal;
 }
 
 .main .btn-secondary {
@@ -145,14 +257,33 @@ h4 {
     padding: 7px 35px;
     font-style: normal;
     font-weight: 400;
-    font-size: 13px;
-    line-height: 17px;
+    font-size: 16px;
+    line-height: normal;
 }
 
 .main .btn-secondary:hover {
     background-color: var(--primary);
     border-color: var(--primary);
     color: #fff;
+}
+
+.main .btn-primary:disabled,
+.main .btn-primary.disabled,
+fieldset:disabled .main .btn-primary {
+    color: var(--scm-btn-disabled-color);
+    pointer-events: none;
+    background-color: var(--scm-btn-disabled-bg);
+    border-color: var(--scm-btn-disabled-border-color);
+    opacity: var(--scm-btn-disabled-opacity);
+}
+
+.form-check-input:disabled,
+.form-check-input:checked:disabled {
+    pointer-events: none;
+    filter: none;
+    background-color: var(--scm-btn-disabled-bg);
+    border-color: var(--scm-btn-disabled-border-color);
+    opacity: var(--scm-btn-disabled-opacity);
 }
 
 .pagination .active>.page-link,
@@ -173,11 +304,18 @@ h4 {
 .main .form-control {
     border: 1px solid var(--primary);
     border-radius: 10px;
+    font-size: 1.125rem;
+}
+
+.form-switch {
+    padding-left: 3.5em;
+    line-height: 30px;
 }
 
 .form-switch .form-check-input {
     height: 1.375em;
     width: 2.75em;
+    margin-left: -3.5em;
     background-image: url("data: image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8' ><circle r='3' fill='%23fff' /></svg>")
 }
 
@@ -199,6 +337,15 @@ h4 {
     border-color: #5d87ff;
 }
 
+.form-control:disabled {
+    background-color: #E8E8ED;
+    border-color: #AFAFAF;
+}
+
+.form-select:disabled {
+    background-image: url("data: image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' ><path fill='none' stroke='%23AFAFAF' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m2 5 6 6 6-6' /></svg>")
+}
+
 form .search {
     width: 100%;
 }
@@ -214,16 +361,40 @@ form .search .fa-search {
 .form-calendar i {
     vertical-align: middle;
     color: var(--primary);
-    font-size: 18px;
+    font-size: var(--fs-18);
     padding: 10px 0;
+}
+
+.modal .modal-content {
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+.modal-title {
+    font-size: var(--fs-22);
+}
+
+.modal .modal-header,
+.modal .modal-body,
+.modal .modal-footer {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .modal .modal-header {
     border-bottom: 1px solid var(--primary);
+
+}
+
+.modal-footer>* {
+    margin: 0 -15px;
 }
 
 .modal .modal-footer {
     border-top: 1px solid var(--primary);
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 .modal-bg::before {
@@ -277,11 +448,17 @@ form .search .fa-search {
 
     .search {
         width: 100%;
-        margin-bottom: 16px;
+        margin-bottom: 0;
     }
 
     .modal-dialog {
         margin-left: 5.5rem;
     }
 
+}
+
+@media (min-width: 1200px) {
+    .modal-xl {
+        --bs-modal-width: 1400px;
+    }
 }
