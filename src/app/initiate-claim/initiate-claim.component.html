@@ -256,7 +256,7 @@
     <!-- Modal Enter Claim Notes -->
     <div class="modal modal-bg" id="modalEnterClaim" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Enter Claim Notes</h5>
@@ -422,7 +422,7 @@
     <!-- Modal Claim has been initiated -->
     <div class="modal modal-bg" id="initiateclaim" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="initiateclaimLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-success" id="initiateclaimLabel"> <i class="fa-check-circle fas"></i>
@@ -738,7 +738,7 @@
     <!-- Add Invoice -->
     <div class="modal modal-bg" id="addinvoice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="addinvoiceLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addinvoiceLabel">Add Invoice</h5>
@@ -819,7 +819,7 @@
     <!-- Prior Claim Summary -->
     <div class="modal modal-bg" id="priorclaimsummary" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="priorclaimsummaryLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="priorclaimsummaryLabel">Prior Claim Summary</h5>
@@ -828,24 +828,24 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="table-responsive table-summary table-text-nowrap">
+                            <div class="table-responsive table-summary">
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
                                             <th scope="col">Origin</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">Claim #</th>
+                                            <th scope="col" class="text-nowrap">Claim #</th>
                                             <th scope="col">Date</th>
-                                            <th scope="col">Customer #</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Invoice #</th>
+                                            <th scope="col" class="text-nowrap">Customer #</th>
+                                            <th scope="col" [width]="200">Name</th>
+                                            <th scope="col" class="text-nowrap">Invoice #</th>
                                             <th scope="col">Date</th>
-                                            <th scope="col">CRM #</th>
+                                            <th scope="col" class="text-nowrap">CRM #</th>
                                             <th scope="col">Date</th>
-                                            <th scope="col">DBT #</th>
+                                            <th scope="col" class="text-nowrap">DBT #</th>
                                             <th scope="col">Date</th>
-                                            <th scope="col">Reason Code</th>
-                                            <th scope="col">Total Amount</th>
+                                            <th scope="col" class="text-nowrap">Reason Code</th>
+                                            <th scope="col" class="text-nowrap">Total Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -880,7 +880,7 @@
     <!-- Store Information -->
     <div class="modal modal-bg" id="storeinvoice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="storeinvoiceLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="storeinvoiceLabel">Store Information</h5>
