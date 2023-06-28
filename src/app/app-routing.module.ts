@@ -5,15 +5,19 @@ import { InitiateClaimComponent } from './initiate-claim/initiate-claim.componen
 import { ReportsComponent } from './reports/reports.component';
 import { WorkQueueComponent } from './work-queue/work-queue.component';
 import { SettingsComponent } from './settings/settings.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGaurd } from './mockApis/authgaurd';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' }, // Redirect to the login page by default
+  { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'initiateClaim', component: InitiateClaimComponent },
+  { path: 'initiateClaim', component: InitiateClaimComponent  },
   { path: 'reports', component: ReportsComponent },
   { path: 'workQueue', component: WorkQueueComponent },
-  { path: 'settings', component: SettingsComponent }
+  { path: 'settings', component: SettingsComponent,canActivate: [AuthGaurd] },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
