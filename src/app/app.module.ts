@@ -14,8 +14,13 @@ import { FooterComponent } from './footer/footer.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ClaimDuesComponent } from './dashboard/claim-dues/claim-dues.component';
 import { OdItemsComponent } from './dashboard/od-items/od-items.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
+import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { loginReducer } from './ngrx/store/reducers/login.reducer';
+import { AuthGaurd } from './mockApis/authgaurd';
 
 
 @NgModule({
@@ -31,17 +36,21 @@ import { StoreModule } from '@ngrx/store';
     FooterComponent,
     SettingsComponent,
     ClaimDuesComponent,
-    OdItemsComponent
+    OdItemsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}, {})
+    FormsModule,
+    StoreModule.forRoot({ login: loginReducer }), // Add the login reducer to the store
+    StoreDevtoolsModule.instrument({ maxAge: 10 }),
   ],
-  providers: [],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
+  providers: [AuthGaurd], // Add AuthGuard as a provider
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
