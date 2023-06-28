@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from './mockApis/login.service';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -10,12 +12,22 @@ interface SideNavToggle {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'first-app';
-  isSideNavCollapsed = false;
-  screenWidth = 0;
-  onToggleSideNav(data: SideNavToggle): void {
-    this.screenWidth = data.screenWidth;
-    this.isSideNavCollapsed = data.collapsed;
+export class AppComponent implements OnInit {
+  isSideNavCollapsed: boolean = true;
+  screenWidth!: number;
+  isLoggedIn: boolean = false;
+
+  constructor(private loginService: LoginService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.isLoggedIn = this.loginService.getIsLoggedIn();
+
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  onToggleSideNav(collapsed: boolean): void {
+    this.isSideNavCollapsed = collapsed;
   }
 }
